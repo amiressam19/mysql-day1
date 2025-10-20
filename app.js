@@ -19,6 +19,7 @@ app.use(
   })
 );
 
+// routes
 app.get("/", (req, res) => {
   res.render("login");
 });
@@ -39,6 +40,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+
 app.get("/databases", async (req, res) => {
   if (!req.session.dbUser) return res.redirect("/");
   try {
@@ -54,6 +56,7 @@ app.get("/databases", async (req, res) => {
   }
 });
 
+// add database
 app.get("/addDatabase", (req, res) => {
   if (!req.session.dbUser) return res.redirect("/");
   res.render("addDatabase");
